@@ -1,4 +1,4 @@
-package com.eversadclown.springreactiveserver.api
+package com.eversadclown.springreactiveserver.api.models
 
 import com.fasterxml.jackson.annotation.JsonProperty
 

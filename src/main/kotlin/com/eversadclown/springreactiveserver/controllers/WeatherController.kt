@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
+import reactor.core.publisher.Flux
 
 @RestController
 @RequestMapping("/weather")
@@ -14,11 +15,11 @@ class WeatherController(
 ) {
 
     @GetMapping
-    fun getAll(): List<WeatherInfo> = weatherService.getAll();
+    fun getAll(): Flux<WeatherInfo> = weatherService.getAll();
 
     @GetMapping("/city/{city}")
-    fun findAllCityIgnoreCase(@PathVariable city: String): List<WeatherInfo> {
-        return weatherService.getAllCityIgnoreCase(city)
+    fun findAllCityIgnoreCase(@PathVariable city: String): Flux<WeatherInfo> {
+        return weatherService.getForCity(city)
     }
 
 }
