@@ -5,5 +5,5 @@ import java.time.LocalDate
 
 data class ForecastDay (
     val date: LocalDate,
-    @JsonProperty("day") val temperature: Temperature
+    @JsonProperty("day") val temperature: Temperature,
 )

@@ -2,7 +2,10 @@ package com.eversadclown.springreactiveserver.api.models
 
 import com.eversadclown.springreactiveserver.models.WeatherInfo
 
-data class WeatherApiResponse(val location: Location, val forecast: Forecast) {
+data class WeatherApiResponse(
+    val location: Location,
+    val forecast: Forecast,
+) {
 
     fun toWeatherInfoList(): List<WeatherInfo> {
         return forecast.days.map {
