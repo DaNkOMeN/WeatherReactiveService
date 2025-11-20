@@ -1,14 +1,12 @@
 spring:
   application:
     name: SpringReactiveServer
-  datasource:
-    url: jdbc:h2:mem:testdb
-    driverClassName: org.h2.Driver
-    username: sa
-    password: password
-    database-platform: org.hibernate.dialect.H2Dialect
+  r2dbc:
+    url: "r2dbc:postgresql://localhost:5432/myjira"
+    username: postgres
+    password: postgres
 
-
-weatherapi:
-  host: https://api.weatherapi.com
-  api-key: bf674e3c65f14e58b7d132104251911
+server:
+  port: 8080
+  error:
+    include-message: always #Должна ли информация об ошибках включать текст сообщения об ошибке в HTTP-ответах

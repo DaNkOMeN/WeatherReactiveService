@@ -21,11 +21,13 @@ repositories {
 
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter")
-    implementation("org.springframework.boot:spring-boot-starter-data-r2dbc")
-    implementation("org.springframework.boot:spring-boot-starter-webflux")
+    implementation("org.springframework.boot:spring-boot-starter-data-r2dbc") //подключение к реактивной реляционной базе данных
+    implementation("org.springframework.boot:spring-boot-starter-webflux") //для создания реактивных REST API
+    implementation("org.springframework.boot:spring-boot-starter-validation") //для валидации входных данных REST API
+    implementation("org.springdoc:springdoc-openapi-starter-webflux-ui:2.6.0")
 
-    runtimeOnly("com.h2database:h2")
-    runtimeOnly("io.r2dbc:r2dbc-h2")
+    runtimeOnly("org.postgresql:r2dbc-postgresql")
+
 
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
