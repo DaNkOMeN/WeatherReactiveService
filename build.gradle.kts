@@ -26,7 +26,16 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-validation") //для валидации входных данных REST API
     implementation("org.springdoc:springdoc-openapi-starter-webflux-ui:2.6.0")
 
-    runtimeOnly("org.postgresql:r2dbc-postgresql")
+    implementation("io.r2dbc:r2dbc-pool")
+    implementation("org.postgresql:r2dbc-postgresql:1.0.2.RELEASE")
+
+    runtimeOnly("org.postgresql:postgresql")
+    implementation("org.springframework.boot:spring-boot-starter-jdbc")
+
+
+
+    implementation("org.flywaydb:flyway-core")
+    implementation("org.flywaydb:flyway-database-postgresql")
 
 
     implementation("org.jetbrains.kotlin:kotlin-reflect")

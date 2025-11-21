@@ -1,10 +1,27 @@
 spring:
   application:
     name: SpringReactiveServer
-  r2dbc:
-    url: "r2dbc:postgresql://localhost:5432/myjira"
+  # Для настройки миграции
+  datasource:
+    url: jdbc:postgresql://localhost:5432/myjira
     username: postgres
     password: postgres
+    driver-class-name: org.postgresql.Driver
+
+  # Реактивная работы с базой данных
+  r2dbc:
+    url: r2dbc:postgresql://localhost:5432/myjira
+    username: postgres
+    password: postgres
+
+  # Миграции Flyway
+  flyway:
+    enabled: true
+    baseline-on-migrate: true #заставляет создать базовый образ базы данных при выполнении миграции
+    locations: classpath:db/migration #где искать скрипты миграции
+    baseline-version: "0"
+    validate-on-migrate: false
+    out-of-order: true
 
 server:
   port: 8080

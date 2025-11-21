@@ -6,7 +6,12 @@ services:
     image: postgres
     ports:
       - "5432:5432"
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: myjira
+
+volumes:
+  pgadmin_data:
